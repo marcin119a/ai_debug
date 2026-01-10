@@ -4,7 +4,7 @@ import gradio as gr
 # pipeline do transkrypcji audio (Whisper)
 pipe = pipeline(
    task="automatic-speech-recognition",
-   model="openai/whisper-small",   # możesz zmienić na medium/large
+   model="openai/whisper-tiny",   # możesz zmienić na medium/large
 )
 
 def transcribe(audio_file):

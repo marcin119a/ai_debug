@@ -1,0 +1,25 @@
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    networks:
+      - celery_network
+  api: 
+    build: ./api
+    ports:
+      - 8001:8000
+    depends_on:
+      - redis
+    networks:
+      - celery_network
+
+  worker:
+    build: ./worker
+    depends_on:
+      - redis
+    networks:
+      - celery_network
+networks:
+  celery_network:
+    driver: bridge

@@ -1,0 +1,4 @@
+celery
+transformers
+redis
+torch
